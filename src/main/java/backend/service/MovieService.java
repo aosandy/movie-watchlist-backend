@@ -57,4 +57,24 @@ public class MovieService {
             .map(mapper::movieDtoToMovie)
             .block();
     }
+
+    public List<Movie> getMoviesByKeyword(String keyword) {
+        String uri = String.join("", "v2.1/films/search-by-keyword?keyword=", keyword, "&page=1");
+        return webClient
+            .get()
+            .uri(uri)
+            .retrieve()
+            .bodyToMono(JsonNode.class)
+            .map(s -> s.path("films"))
+            .map(s -> {
+                try {
+                    List<SearchMovieDto> raw = objectMapper.readValue(s.traverse(), new TypeReference<List<SearchMovieDto>>() {} );
+                    return raw.stream().map(mapper::searchMovieDtoToMovie).toList();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return new ArrayList<Movie>();
+                }
+            })
+            .block();
+    }
 }
