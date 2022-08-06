@@ -7,13 +7,11 @@ import lombok.RequiredArgsConstructor;
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class Movie {
+public class MoviePreview {
 
     private Long id;
 
     private String name;
 
-    private Integer year;
-
-    private String posterUrl;
+    private String posterUrlPreview;
 }

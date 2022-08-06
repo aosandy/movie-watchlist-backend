@@ -1,6 +1,7 @@
 package backend.controller;
 
 import backend.model.Movie;
+import backend.model.MoviePreview;
 import backend.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class MovieController {
     private MovieService service;
 
     @GetMapping("/premieres")
-    public ResponseEntity<List<Movie>> getPremieres() {
+    public ResponseEntity<List<MoviePreview>> getPremieres() {
         return new ResponseEntity<>(service.getPremieres(), HttpStatus.OK);
     }
 
@@ -28,7 +29,7 @@ public class MovieController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<Movie>> getMoviesByKeyword(@RequestParam("keyword") String keyword) {
+    public ResponseEntity<List<MoviePreview>> getMoviesByKeyword(@RequestParam("keyword") String keyword) {
         return new ResponseEntity<>(service.getMoviesByKeyword(keyword), HttpStatus.OK);
     }
 }
