@@ -20,6 +20,7 @@
 
         <!-- region Thirds -->
         <org.mapstruct.version>1.5.1.Final</org.mapstruct.version>
+        <io.jsonwebtoken.version>0.9.1</io.jsonwebtoken.version>
         <!-- endregion Thirds -->
     </properties>
 
@@ -80,6 +81,11 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>${io.jsonwebtoken.version}</version>
         </dependency>
     </dependencies>
 

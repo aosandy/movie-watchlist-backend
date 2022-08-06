@@ -12,12 +12,10 @@ public interface MovieMapper {
     @Mapping(source = "kinopoiskId", target = "id")
     @Mapping(source = "nameRu", target = "name")
     @Mapping(source = "posterUrl", target = "posterUrl")
-    @Mapping(source = "posterUrlPreview", target = "posterUrlPreview")
     Movie movieDtoToMovie(MovieDto source);
 
     @Mapping(source = "filmId", target = "id")
     @Mapping(source = "nameRu", target = "name")
     @Mapping(source = "posterUrlPreview", target = "posterUrlPreview")
     Movie searchMovieDtoToMovie(SearchMovieDto source);
-
 }
