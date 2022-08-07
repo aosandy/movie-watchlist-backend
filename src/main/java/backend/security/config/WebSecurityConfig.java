@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,15 +33,15 @@ public class WebSecurityConfig {
         http
             .authenticationProvider(daoAuthenticationProvider())
             .csrf().disable()
-            .formLogin().disable()
-            .httpBasic().disable()
+            .cors().disable()
+            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .authorizeRequests()
             .antMatchers("/auth/**").permitAll()
             .antMatchers("/films/**").permitAll()
             .antMatchers("/user/**").permitAll()
-            .anyRequest().authenticated();
-//            .and()
-//            .apply(new JwtSecurityConfigurer(jwtTokenProvider));
+            .anyRequest().authenticated()
+            .and()
+            .apply(new JwtSecurityConfigurer(jwtTokenProvider));
         return http.build();
     }
 

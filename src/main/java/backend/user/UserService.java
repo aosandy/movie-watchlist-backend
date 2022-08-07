@@ -1,14 +1,18 @@
 package backend.user;
 
+import backend.mapper.MoviePreviewMapper;
+import backend.model.MoviePreview;
+import backend.model.entity.MovieMark;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -20,6 +24,7 @@ public class UserService implements UserDetailsService {
 
     private final UserRepository repository;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final MoviePreviewMapper mapper;
 
     @Override
     public UserDetails loadUserByUsername(String username)
@@ -78,7 +83,10 @@ public class UserService implements UserDetailsService {
         throw new UsernameNotFoundException("User not found");
     }
 
-
+    public List<MoviePreview> getUserMarkedMovies() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return repository.findByUsername(username).get().getMovieMarks().stream().map(mapper::movieMarkToMoviePreview).toList();
+    }
 
     public int enableUser(String email) {
         return repository.enableAppUser(email);

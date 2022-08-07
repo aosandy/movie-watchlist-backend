@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+import static backend.security.SecurityUtils.getCurrentlyAuthenticatedUsername;
+
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/auth")
@@ -35,5 +37,10 @@ public class AuthController {
     @PostMapping("/logout")
     public void logout(@RequestBody LoginRequest request){
         service.logout(request);
+    }
+
+    @GetMapping("/username")
+    public ResponseEntity<String> getUsername(){
+        return new ResponseEntity<>(getCurrentlyAuthenticatedUsername(), HttpStatus.OK);
     }
 }

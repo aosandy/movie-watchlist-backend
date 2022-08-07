@@ -3,6 +3,7 @@ package backend.mapper;
 import backend.model.MoviePreview;
 import backend.model.dto.MovieDto;
 import backend.model.dto.SearchMovieDto;
+import backend.model.entity.MovieMark;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -18,4 +19,9 @@ public interface MoviePreviewMapper {
     @Mapping(source = "nameRu", target = "name")
     @Mapping(source = "posterUrlPreview", target = "posterUrlPreview")
     MoviePreview searchMovieDtoToMoviePreview(SearchMovieDto source);
+
+    @Mapping(source = "movieId", target = "id")
+    @Mapping(source = "name", target = "name")
+    @Mapping(source = "posterUrlPreview", target = "posterUrlPreview")
+    MoviePreview movieMarkToMoviePreview(MovieMark source);
 }

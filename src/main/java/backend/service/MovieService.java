@@ -6,6 +6,7 @@ import backend.model.Movie;
 import backend.model.MoviePreview;
 import backend.model.dto.MovieDto;
 import backend.model.dto.SearchMovieDto;
+import backend.user.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,6 +14,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
