@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>17</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
         <!-- region Thirds -->
@@ -130,6 +132,8 @@
                         </goals>
                         <configuration>
                             <additionalProperties>
+                                <encoding.source>${project.build.sourceEncoding}</encoding.source>
+                                <encoding.reporting>${project.reporting.outputEncoding}</encoding.reporting>
                                 <java.source>${java.version}</java.source>
                                 <java.target>${java.version}</java.target>
                             </additionalProperties>
