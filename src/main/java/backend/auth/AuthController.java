@@ -16,7 +16,7 @@ import java.util.List;
 
 import static backend.security.SecurityUtils.getCurrentlyAuthenticatedUsername;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://movie-watchlist-frontend-app.herokuapp.com/")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {

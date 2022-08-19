@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://movie-watchlist-frontend-app.herokuapp.com/")
 @RestController
 @RequestMapping("/films")
 public class MovieController {
