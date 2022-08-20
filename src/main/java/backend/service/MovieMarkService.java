@@ -2,9 +2,8 @@ package backend.service;
 
 import backend.model.MarkRequest;
 import backend.model.entity.MovieMark;
-import backend.user.User;
+import backend.model.entity.User;
 import backend.repository.MovieMarkRepository;
-import backend.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;

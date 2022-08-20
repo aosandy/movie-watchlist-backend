@@ -1,6 +1,6 @@
-package backend.user;
+package backend.model.entity;
 
-import backend.model.entity.MovieMark;
+import backend.model.UserRole;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

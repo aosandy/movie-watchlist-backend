@@ -1,7 +1,7 @@
 package backend.security.jwt;
 
 import backend.exception.InvalidJwtAuthenticationException;
-import backend.user.User;
+import backend.model.entity.User;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

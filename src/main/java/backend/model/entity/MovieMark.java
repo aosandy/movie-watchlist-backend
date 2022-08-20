@@ -1,7 +1,5 @@
 package backend.model.entity;
 
-import backend.model.Movie;
-import backend.user.User;
 import lombok.*;
 
 import javax.persistence.*;

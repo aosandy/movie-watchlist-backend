@@ -1,11 +1,7 @@
 package backend.mapper;
 
-import backend.auth.RegistrationRequest;
-import backend.model.Movie;
-import backend.model.dto.MovieDto;
-import backend.model.dto.SearchMovieDto;
-import backend.user.User;
-import org.mapstruct.AfterMapping;
+import backend.payload.RegistrationRequest;
+import backend.model.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

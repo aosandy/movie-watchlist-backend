@@ -1,7 +1,9 @@
-package backend.user;
+package backend.service;
 
 import backend.mapper.MoviePreviewMapper;
 import backend.model.MoviePreview;
+import backend.repository.UserRepository;
+import backend.model.entity.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

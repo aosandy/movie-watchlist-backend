@@ -1,9 +1,11 @@
-package backend.auth;
+package backend.service;
 
+import backend.payload.LoginRequest;
+import backend.payload.LoginResponse;
+import backend.payload.RegistrationRequest;
 import backend.security.jwt.JwtTokenProvider;
-import backend.user.User;
-import backend.user.UserRole;
-import backend.user.UserService;
+import backend.model.entity.User;
+import backend.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,9 +13,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Service
 public class AuthService {
