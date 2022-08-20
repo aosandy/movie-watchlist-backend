@@ -15,6 +15,8 @@ public class MovieDto {
 
     private String nameEn;
 
+    private String description;
+
     private Integer year;
 
     private String posterUrl;

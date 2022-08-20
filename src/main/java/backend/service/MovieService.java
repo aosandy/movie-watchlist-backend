@@ -6,7 +6,6 @@ import backend.model.Movie;
 import backend.model.MoviePreview;
 import backend.model.dto.MovieDto;
 import backend.model.dto.SearchMovieDto;
-import backend.user.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +13,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -33,7 +31,7 @@ public class MovieService {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MMMMM dd, yyyy");
         LocalDateTime now = LocalDateTime.now();
 
-        String uri = String.join("", "v2.2/films/premieres?year=2022&month=July");
+        String uri = String.join("", "v2.2/films/premieres?year=2022&month=August");
         return webClient
             .get()
             .uri(uri)

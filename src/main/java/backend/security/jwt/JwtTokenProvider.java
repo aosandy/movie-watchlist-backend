@@ -40,7 +40,7 @@ public class JwtTokenProvider {
         Date validity = new Date(now.getTime() + jwtProperties.getValidInMs());
 
         return Jwts.builder()
-            .setSubject(user.getUsername())
+            .setSubject(user.getEmail())
             .setIssuedAt(now)
             .setExpiration(validity)
             .signWith(SignatureAlgorithm.HS256, secretKey)

@@ -13,6 +13,8 @@ public class Movie {
 
     private String name;
 
+    private String description;
+
     private Integer year;
 
     private String posterUrl;

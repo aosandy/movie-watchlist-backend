@@ -48,6 +48,10 @@ public class User implements UserDetails {
         this.userRole = userRole;
     }
 
+    public String getUsernameField() {
+        return username;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         SimpleGrantedAuthority authority =
@@ -62,7 +66,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return email;
     }
 
     @Override

@@ -11,5 +11,6 @@ public interface MovieMapper {
     @Mapping(source = "kinopoiskId", target = "id")
     @Mapping(source = "nameRu", target = "name")
     @Mapping(source = "posterUrl", target = "posterUrl")
+    @Mapping(source = "description", target = "description")
     Movie movieDtoToMovie(MovieDto source);
 }

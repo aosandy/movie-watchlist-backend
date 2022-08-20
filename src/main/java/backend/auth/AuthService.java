@@ -4,19 +4,13 @@ import backend.security.jwt.JwtTokenProvider;
 import backend.user.User;
 import backend.user.UserRole;
 import backend.user.UserService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -54,7 +48,7 @@ public class AuthService {
     public LoginResponse login(LoginRequest request) {
         try {
             Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
             String jwt = jwtTokenProvider.createToken(authentication);
             User user = (User) authentication.getPrincipal();
@@ -63,7 +57,7 @@ public class AuthService {
             return new LoginResponse(
                 jwt,
                 user.getId(),
-                user.getUsername(),
+                user.getUsernameField(),
                 user.getEmail(),
                 user.getUserRole().name()
             );
@@ -75,7 +69,7 @@ public class AuthService {
     public void logout(LoginRequest request) {
         try {
             authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
+                new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
 
 
         } catch (AuthenticationException e) {
